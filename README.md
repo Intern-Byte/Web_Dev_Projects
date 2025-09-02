@@ -1,7 +1,7 @@
-Student Grade Manager
+#Student Grade Manager
 A modern, responsive, and single-page web application for managing student grades. Built with vanilla HTML, CSS, and JavaScript, this project provides a clean interface for adding students, tracking their performance across multiple subjects, and viewing overall class statistics. The application uses localStorage for persistent data storage, so your data is saved in your browser even after closing the tab.
 
-✨ Features
+#✨ Features
 Dynamic Two-Step Form: Easily add a new student by first entering their name, unique roll number, and the number of subjects. The form then dynamically generates fields to enter each subject and its corresponding grade.
 
 Comprehensive Student List: View all students in a clean, responsive table that shows their roll number, name, a detailed list of subjects with grades, and their calculated average grade.
@@ -24,7 +24,7 @@ Legacy Data Migration: Automatically detects and converts data from previous, ou
 
 Sleek & Responsive Design: Features a modern dark theme with a visually appealing layout that works seamlessly on all devices, from mobile phones to desktop monitors.
 
-📂 Project Structure
+#📂 Project Structure
 The project is organized into three separate files for better maintainability and follows standard web development practices:
 
 student-grade-manager/
@@ -32,7 +32,7 @@ student-grade-manager/
 ├── style.css       # All custom styles for the application
 └── script.js       # All the JavaScript logic and interactivity
 
-💻 Tech Stack
+#💻 Tech Stack
 This project is built with a focus on web fundamentals and requires no complex setup or dependencies.
 
 HTML5
@@ -45,7 +45,7 @@ Vanilla JavaScript (ES6+)
 
 Google Fonts (Poppins)
 
-🚀 How to Use
+#🚀 How to Use
 Getting this project running is incredibly simple:
 
 Download the Folder:
@@ -62,5 +62,5 @@ Open the index.html file directly in any modern web browser (like Google Chrome,
 
 The application is now ready to use!
 
-📄 Usage Policy
+#📄 Usage Policy
 This project is made by the InternByte team. It is for use by InternByte interns only. Do not use for personal purposes or copy without permission.
