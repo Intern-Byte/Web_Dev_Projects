@@ -92,7 +92,7 @@ function setLoadingState(isLoading) {
 
 //--- Add Your Gemini API Key here
 
-const API_KEY = "AIzaSyDucTGUs0Lpod-iFvtQbGdHF9PqosIjD0Y";
+const API_KEY = "YOUR_API_KEY_HERE";
 
 // --- END OF CONFIGURATION ---
 
@@ -190,3 +190,4 @@ function init() {
 
 // Run app
 init();
+
