@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Recipe Finder</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/"
+  }
+}
+</script>
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="container">
+        <header class="app-header">
+            <h1 class="app-title">Simple Recipe Finder</h1>
+            <p class="app-subtitle">Discover delicious recipes by your favorite ingredient.</p>
+        </header>
+
+        <main>
+            <form id="search-form" class="search-bar" role="search">
+                <input type="search" id="search-input" placeholder="e.g., chicken, eggs, rice" aria-label="Search for recipes by ingredient" required>
+                <button type="submit" id="search-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <span>Search</span>
+                </button>
+            </form>
+
+            <div id="content-wrapper">
+                <div id="loader" class="loader-container hidden">
+                    <div class="loader"></div>
+                </div>
+                <div id="message-container" class="message-container">
+                    <p id="initial-message">Ready to cook something amazing?</p>
+                </div>
+                <div id="recipe-results" class="recipe-grid" aria-live="polite"></div>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <p>© 2025 <a href="https://internbyte.in" target="_blank">Intern Byte.</a> This project is made by the InternByte team. For use by InternByte interns only. Do not use for personal purposes or copy without permission.</p>
+        </footer>
+    </div>
+
+    <div id="recipe-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="close-button" aria-label="Close recipe details">&times;</button>
+            <div id="modal-body">
+                <!-- Recipe details will be injected here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
