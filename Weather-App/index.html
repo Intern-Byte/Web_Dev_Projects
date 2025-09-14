@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gemini Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.16.0",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/"
+  }
+}
+</script>
+</head>
+
+<body>
+    <div class="weather-app">
+        <main class="main-card">
+            <h1>IB Weather App</h1>
+            <form class="search-form" id="search-form" aria-label="City weather search">
+                <input type="text" id="city-input" placeholder="Enter city name..." class="search-input"
+                    aria-label="City name" required />
+                <button type="submit" class="search-button" id="search-button" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+            </form>
+
+            <div class="content-container">
+                <!-- Initial State -->
+                <div id="initial-state" class="initial-state">
+                    <!-- Icon will be injected by JS -->
+                    <p>Enter a city to get the weather</p>
+                </div>
+
+                <!-- Loader -->
+                <div id="loader" class="loader hidden"></div>
+
+                <!-- Error Display -->
+                <div id="error-display" class="error-display hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p id="error-message"></p>
+                </div>
+
+                <!-- Weather Display -->
+                <div id="weather-display" class="weather-display hidden">
+                    <h2 id="city-name"></h2>
+                    <div class="main-info">
+                        <div id="weather-icon-container" class="weather-icon"></div>
+                        <div class="temp-details">
+                            <p class="temperature" id="temperature"></p>
+                            <p class="condition" id="condition"></p>
+                        </div>
+                    </div>
+                    <div class="extra-info">
+                        <div class="info-item">
+                            <div class="info-icon" id="temp-icon"></div>
+                            <p class="info-value" id="feels-like"></p>
+                            <p class="info-label">Feels Like</p>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon" id="humidity-icon"></div>
+                            <p class="info-value" id="humidity"></p>
+                            <p class="info-label">Humidity</p>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon" id="wind-icon"></div>
+                            <p class="info-value" id="wind-speed"></p>
+                            <p class="info-label">Wind</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+             <p>&copy; 2025 Intern Byte. This project is made by the InternByte team. For use by InternByte interns
+                    only.
+                    Do not use for personal purposes or copy without permission.</p>
+        </footer>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+/* --- General Styling --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #6e45e2, #88d3ce);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* --- Quiz Container --- */
+.app {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 90%;
+    max-width: 600px;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.app h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.quiz {
+    padding: 20px 0;
+}
+
+.quiz h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* --- Answer Buttons --- */
+.btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-weight: 500;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    margin: 10px 0;
+    text-align: left;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover:not([disabled]) {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* --- Feedback Styles --- */
+.correct {
+    background: #28a745 !important;
+    /* Green for correct */
+    color: #fff !important;
+    border-color: #28a745 !important;
+}
+
+.incorrect {
+    background: #dc3545 !important;
+    /* Red for incorrect */
+    color: #fff !important;
+    border-color: #dc3545 !important;
+}
+
+/* --- Next Button --- */
+#next-btn {
+    background: #fff;
+    color: #6e45e2;
+    font-weight: 600;
+    width: 150px;
+    border: 0;
+    padding: 12px;
+    margin: 20px auto 0;
+    border-radius: 12px;
+    cursor: pointer;
+    display: none;
+    /* Hidden by default */
+    transition: all 0.3s ease;
+}
+
+#next-btn:hover {
+    background: #f0f0f0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}

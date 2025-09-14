@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grade Manager</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="antialiased text-gray-200">
+
+    <!-- Main Container -->
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <!-- Header -->
+        <header class="text-center mb-8 md:mb-12">
+            <h1
+                class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-500">
+                Student Grade Manager
+            </h1>
+            <p class="text-gray-400 mt-2">A simple way to track and manage student performance.</p>
+        </header>
+
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- Left Column: Form & Stats -->
+            <div class="lg:col-span-1 space-y-8">
+
+                <!-- Add Student Form -->
+                <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-gray-700">
+                    <h2 class="text-2xl font-semibold mb-4 text-white">Add New Student</h2>
+                    <form id="add-student-form" class="space-y-4" novalidate>
+                        <!-- Step 1: Student Details -->
+                        <div id="form-step-1">
+                            <div>
+                                <label for="student-name" class="block text-sm font-medium text-gray-300 mb-1">Student
+                                    Name</label>
+                                <input type="text" id="student-name" placeholder="e.g., John Doe"
+                                    class="form-input w-full rounded-md text-white transition">
+                            </div>
+                            <div>
+                                <label for="roll-number" class="block text-sm font-medium text-gray-300 mb-1">Roll
+                                    Number</label>
+                                <input type="text" id="roll-number" placeholder="e.g., 101"
+                                    class="form-input w-full rounded-md text-white transition">
+                            </div>
+                            <div>
+                                <label for="num-subjects" class="block text-sm font-medium text-gray-300 mb-1">Number of
+                                    Subjects</label>
+                                <input type="number" id="num-subjects" placeholder="e.g., 5" min="1" max="10"
+                                    class="form-input w-full rounded-md text-white transition">
+                            </div>
+                            <p id="form-error-step1" class="text-red-400 text-sm mt-1 hidden">Please fill out all
+                                fields.</p>
+                            <p id="roll-error" class="text-red-400 text-sm mt-1 hidden">This roll number is already in
+                                use.</p>
+                            <button type="button" id="next-step-btn"
+                                class="w-full btn-primary text-white font-bold py-3 px-4 rounded-md hover:opacity-90 transition-all transform hover:scale-105 shadow-lg mt-2">
+                                Next: Add Subjects
+                            </button>
+                        </div>
+
+                        <!-- Step 2: Subjects & Grades -->
+                        <div id="form-step-2" class="hidden">
+                            <h3 class="text-lg font-semibold text-white mb-2">Enter Subjects and Grades</h3>
+                            <div id="subject-inputs" class="space-y-3 max-h-60 overflow-y-auto pr-2">
+                                <!-- Subject inputs will be generated here -->
+                            </div>
+                            <p id="form-error-step2" class="text-red-400 text-sm mt-2 hidden">Please fill out all
+                                subject and grade fields.</p>
+                            <div class="flex gap-4 mt-4">
+                                <button type="button" id="back-btn"
+                                    class="w-full btn-secondary text-white font-bold py-3 px-4 rounded-md hover:opacity-90 transition-all">
+                                    Back
+                                </button>
+                                <button type="submit"
+                                    class="w-full btn-primary text-white font-bold py-3 px-4 rounded-md hover:opacity-90 transition-all transform hover:scale-105 shadow-lg">
+                                    Save Student
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Statistics -->
+                <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-gray-700">
+                    <h2 class="text-2xl font-semibold mb-4 text-white">Class Statistics</h2>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center bg-gray-900 p-4 rounded-lg">
+                            <span class="font-medium text-gray-300">Total Students</span>
+                            <span id="total-students" class="text-2xl font-bold text-purple-400">0</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-gray-900 p-4 rounded-lg">
+                            <span class="font-medium text-gray-300">Class Average</span>
+                            <span id="avg-grade" class="text-2xl font-bold text-indigo-400">0%</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-gray-900 p-4 rounded-lg">
+                            <span class="font-medium text-gray-300">Top Performer Avg.</span>
+                            <span id="high-grade" class="text-2xl font-bold text-green-400">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Student List -->
+            <div class="lg:col-span-2 bg-gray-800/50 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-gray-700">
+                <div class="flex flex-col md:flex-row justify-between md:items-center mb-4">
+                    <h2 class="text-2xl font-semibold text-white mb-4 md:mb-0">Student List</h2>
+                    <input type="text" id="search-input" placeholder="Search by name or roll number..."
+                        class="form-input w-full md:w-64 rounded-md text-white transition">
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="table-header text-gray-300 uppercase text-sm">
+                                <th class="p-4 rounded-tl-lg">Roll No</th>
+                                <th class="p-4">Name</th>
+                                <th class="p-4">Subjects & Grades</th>
+                                <th class="p-4 text-center">Avg.</th>
+                                <th class="p-4 rounded-tr-lg text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="student-list-body">
+                            <tr class="text-center">
+                                <td colspan="5" class="p-8 text-gray-500">No students added yet.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-8 md:mt-12 py-4 border-t border-gray-800">
+            <p class="text-xs text-gray-500">
+                This project is made by the InternByte team. For use by InternByte interns only.
+                <br>
+                Do not use for personal purposes or copy without permission.
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
